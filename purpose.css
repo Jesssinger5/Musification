@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ color: darkblue;
+ padding: 20px;
+ background-color: rgb(255, 239, 218);
+ min-height: 3vh;
+}
+body {
+    font-family: "Raleway", sans-serif;
+    flex-direction: column;
+    gap: 24px;
+    padding: 14px;
+    min-height: 100vh;
+    background-color: rgb(255, 246, 234);
+}
+
+.home {
+    background: transparent;
+    border-color: rgb(0, 0, 172);
+    outline: none;
+    cursor: pointer;
+    padding:0 8px;
+    font-size: larger;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: aliceblue;
+    color: darkblue;
+    font-family: "Raleway", sans-serif;
+    position: relative
+}
+
+.learn {
+    background: transparent;
+    border-color: rgb(0, 0, 172);
+    outline: none;
+    cursor: pointer;
+    padding:0 12px;
+    font-size: larger;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: aliceblue;
+    color: darkblue;
+    font-family: "Raleway", sans-serif;
+    position: relative;
+}
+
+.purpose {
+    background: transparent;
+    border-color: rgb(0, 0, 172);
+    outline: none;
+    cursor: pointer;
+    font-size: larger;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: aliceblue;
+    color: darkblue;
+    font-family: "Raleway", sans-serif;
+    position: relative;
+}
+
+p {
+    gap: 24px;
+    padding: 40px;
+    max-width: 55%;
+}
+
+.survey {
+    background: transparent;
+    border-color:rgb(0, 0, 172);
+    outline: none;
+    cursor: pointer;
+    padding:0 8px;
+    position: absolute;
+    right: 150px;
+    width: 100px;
+    height: 155px;
+    top: 13%;
+    right: 10%;
+    font-size: smaller;
+    aspect-ratio: 1/1;
+    background-color: aliceblue;
+    color: darkblue;
+    font-family: "Raleway", sans-serif;
+}
+
+video {
+    float: right;
+    height: auto;
+    min-height: 180px;
+    position: absolute;
+    top: 35%;
+    right: 3%;
+}
+
+input {
+    background: transparent;
+    border-color: rgb(0, 0, 172);
+    outline: none;
+    cursor: pointer;
+    padding: 0 15px;
+    position: absolute;
+    bottom: 36%;
+    right: 5%;
+    background-color: aliceblue;
+    border-radius: 10%;
+    font-family: "Raleway", sans-serif;
+}

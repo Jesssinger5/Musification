@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn</title>
+    <link rel="stylesheet" href="learn.css"/>
+    <link href="learn.py">
+    <script src="learn.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="page-layout" style="display: flex; height: 100vh;">
+
+  <div id="main-content" style="flex: 1; padding: 20px;">
+    <h1>Musification and Cancer Literacy</h1>
+    <a href="index.html" class="button" style="background: transparent; border-color: rgb(0, 0, 172); outline: none; cursor: pointer; padding: 60px 60px; bottom: 50%; left: 1px ; background-color: aliceblue; border-radius: 50%;">Home</a>
+    </button>
+    <a href="learn.html" class="button" style="background: transparent; border-color: rgb(0, 0, 172); outline: none; cursor: pointer; padding: 60px 60px; bottom: 50%; left: 1px ; background-color: aliceblue; border-radius: 50%;">Learn</a>
+    </button>
+    <a href="purpose.html" class="button" style="background: transparent; border-color: rgb(0, 0, 172); outline: none; cursor: pointer; padding: 60px 60px; bottom: 50%; left: 1px ; background-color: aliceblue; border-radius: 50%;" >Citations</a>
+    <div id="osmd-panel" style="width: 80vh; border-left: 5px solid #ccc; padding: 10px; margin-top: 100px;"></div>
+    <div id="score-container"></div>
+    <div id="score-container-2" style="margin-top: 40px;"></div> 
+    <style>
+#score-container {
+    width: 100%;
+    height: 200px;  
+    margin-top: 20px;
+    overflow: auto;  
+}
+</style>
+    </div>
+   <script>
+let osmd1, osmd2, osmd3;
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    osmd1 = new opensheetmusicdisplay.OpenSheetMusicDisplay("score-container", {
+        zoom: 0.9,
+        drawTitle: false,
+    });
+
+    osmd2 = new opensheetmusicdisplay.OpenSheetMusicDisplay("score-container-2", {
+        zoom: 0.9,
+        drawTitle: false,
+    });
+
+    const xml = await fetch("c_major_scale.musicxml").then(r => r.text());
+    await osmd1.load(xml);
+    osmd1.render();
+});
+
+    async function loadScore2(xmlFile) {
+        const xml = await fetch(xmlFile).then(r => r.text());
+        await osmd2.load(xml);
+        osmd2.render();
+    }
+
+
+async function playScore(whichScore) {
+    await Tone.start();
+
+    Tone.Transport.stop();
+    Tone.Transport.cancel();
+
+    const synth = new Tone.Synth().toDestination();
+
+   
+    const PointMutation = ["C4", "D4", "E4", "F4", "C4", "A4", "B4", "C5"]
+    const Oncogenes = ["C4","D4","E4","F4","C4","D4","E4","F4"];
+    const BloodStreamandLymphaticSystem = ["C4","E4","G4","C5","G4","A4","E4","C4"];
+    const BloodVessels= ["C4", "C4", "C4", "C4", "C4", "D4", "E4", "F4"]
+    const ImmuneSystem= ["C4", "C4", "C4", "F5", "C1", "C1", "C1", "C1"]
+    const EpigenticModification= ["F5", "C4", "D4", "E4", "F5", "C1", "C1", "C1"]
+    const TumorSuppressorGene= ["F5", "C1", "C1", "C1", "C1", "C1", "C1", "C1"]
+    const Metastasis= ["C4", "D4", "E4", "F4", "C6", "D6", "E6", "F6"]
+    const Organs= ["C4", "E4", "G4", "G4", "E4", "C4", "F5", "F5", "C1", "C1", "C1", "C1"]
+    const TreatmentsandTherapies= ["C4", "C4", "C4", "C4", "F5", "F5", "C4", "E4", "G4", "G4", "E4", "C4"]
+    const DNAAmplification= ["G4", "F4", "E4", "D4", "G4", "F4", "E4", "D4", "G4", "F4", "E4", "D4"]
+    const TumorGrowth= ["C4", "E4", "G4", "G4", "E4", "C4", "A2", "F4", "G6", "G6", "F4", "A2"]
+    const WeightPhysicalActivity = ["C4", "E4", "G4", "E4", "C4", "C2", "E2", "G2", "E2", "C2", "C1", "C1"]
+    const ChromosomalRearrangement = ["C4", "E4", "C-1", "C-1", "C-1","E4", "C4"]
+
+    if (whichScore === 1) {
+        notes = PointMutation;
+    } else if (whichScore === 2) {
+        notes = Oncogenes;
+    } else if (whichScore === 3) {
+        notes = BloodStreamandLymphaticSystem;
+    } else if (whichScore === 4) {
+        notes = BloodVessels;
+    } else if (whichScore ===5){
+        notes= ImmuneSystem;
+    } else if (whichScore === 6) {
+        notes = EpigenticModification;
+    } else if (whichScore === 7) {
+        notes = TumorSuppressorGene;
+    } else if (whichScore === 8) {
+        notes = Metastasis;
+    } else if (whichScore === 9){
+        notes= Organs; 
+    }  else if (whichScore ===10){
+        notes= TreatmentsandTherapies; 
+    } else if (whichScore === 11) {
+        notes = DNAAmplification;
+    } else if (whichScore === 12) {
+        notes = TumorGrowth;
+    } else if (whichScore === 13) {
+        notes = WeightPhysicalActivity;
+    } else if (whichScore === 14){
+        notes= ChromosomalRearrangement; 
+    }
+    
+
+    notes.forEach((note, i) => {
+        Tone.Transport.scheduleOnce(time => {
+            synth.triggerAttackRelease(note, "8n", time);
+        }, i * 0.5);
+    });
+
+    Tone.Transport.start("+0.1");
+}
+
+
+</script>
+<div style="position: relative;">
+<img id="image" src="assets/img/PointMutation.jpeg" width="600px" height="300px">
+<table>
+    <tr>
+        <th>Cell Cycle and DNA Mutations</th>
+        <th>Changes in the Cell</th>
+        <th>Tissue</th>
+        <th>Effects on Body</th>
+        <th>Line of Defense</th>
+    </tr>
+    <tr>
+        <td><button onclick="changeImage('assets/img/PointMutation.jpeg'); loadScore2('c_major_scale_PM.musicxml'); playScore(1)" style="padding: 46px 40px;">Point Mutation</button></td>
+
+        <td><button onclick="changeImage('assets/img/Oncogene.jpeg'); loadScore2('c_major_scale_On.music.xml'); playScore(2)" style="padding: 53px 38px;">Oncogenes</button></td>
+
+        <td><button onclick="changeImage('assets/img/BloodStreamandLymphaticSystem.jpeg'); loadScore2('c_major_scale_BLS.music.xml'); playScore(3)" style="padding: 31px;">Blood Stream and Lymphatic System</button></td>
+
+        <td><button onclick="changeImage('assets/img/BloodVessels.jpeg'); loadScore2('c_major_scale_BV.music.xml'); playScore(4)" style="padding: 54px 48px;">Blood Vessels</button></td>
+
+        <td><button onclick="changeImage('assets/img/ImmuneSystem.jpeg'); loadScore2('c_major_scale_IS.music.xml'); playScore(5)" style="padding: 46px;">Immune System</button></td>
+    </tr>
+
+    <tr>
+        <td><button onclick="changeImage('assets/img/EpigenticModification.jpeg'); loadScore2('c_major_scale_EM.music.xml'); playScore(6)" style="padding: 47px 43px;">Epigenetic Modification</button></td>
+
+        <td><button onclick="changeImage('assets/img/TumorSuppressorGene.jpeg'); loadScore2('c_major_scale_TSG.music.xml'); playScore(7)" style="padding: 40px;">Tumor Suppressor Genes</button></td>
+
+        <td><button onclick="changeImage('assets/img/Metastasis.jpeg'); loadScore2('c_major_scale_Me.music.xml'); playScore(8)" style="padding: 55px 43px;">Metastasis</button></td>
+
+        <td><button onclick="changeImage('assets/img/Organs.jpeg'); loadScore2('c_major_scale_Or.music.xml'); playScore(9)" style="padding: 55px 70px;">Organs</button></td>
+
+        <td><button onclick="changeImage('assets/img/TreatmentsandTherapies.jpeg'); loadScore2('c_major_scale_TAT.music.xml'); playScore(10)" style="padding: 40px;">Treatments and Therapies</button></td>
+    </tr>
+
+    <tr>
+        <td><button onclick="changeImage('assets/img/DNAAmplification.jpeg'); loadScore2('c_major_scale_DNAA.music.xml'); playScore(11)" style="padding: 40px;">DNA Amplification</button></td>
+
+        <td></td>
+
+        <td><button onclick="changeImage('assets/img/TumorGrowth.jpeg'); loadScore2('c_major_scale_TG.music.xml'); playScore(12)" style="padding: 40px;">Tumor Growth</button></td>
+
+        <td><button onclick="changeImage('assets/img/Weight:Physical Activity.jpeg'); loadScore2('c_major_scale_WAPA.music.xml'); playScore(13)" style="padding: 40px;">Weight/Physical Activity</button></td>
+
+        <td></td>
+    </tr>
+
+    <tr>
+        <td><button onclick="changeImage('assets/img/ChromosomalRearrangement.jpeg'); loadScore2('c_major_scale_CR.music.xml'); playScore(14)" style="padding: 20px">Chromosomal Rearrangement</button></td>
+
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</div>
+    <div id="output"></div>
+    <p id="info"></p>
+ </div>
+ <script src="https://unpkg.com/opensheetmusicdisplay/build/opensheetmusicdisplay.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
+<script>
+  function changeImage(newSrc) {
+    document.getElementById("image").src = newSrc;
+  }
+</script>
+<script src="/node_modules/music21j/releases/music21.debug.js">
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/music21j@0.17.12/releases/music21.debug.min.js"></script>
+<script>
+window.addEventListener("beforeunload", function (event) {
+    event.preventDefault();
+    event.returnValue = "";  // required for Chrome/Edge/Firefox
+});
+
+    setTimeout(() => {
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSekrk7Lk02GZYwY9EinRe2e37O8OOol0sdMRBRRTjhZkpFBWg/viewform?usp=publish-editor";
+    }, 900000);
+</script>
+<p><strong>The first score (music staff) represents normal functioning. A new score will pop up each time you press a different button (treatment). They represent the affect that is occuring in the paragraph on the top right.</strong></p>
+<p><strong>*Very low notes represent dysfunction</strong></p>
+<p><strong>*Very high notes represent the treatment applied</strong></p>
+</body>
+</html>

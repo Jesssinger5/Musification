@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ color: darkblue;
+ padding: 20px;
+ background-color: rgb(255, 239, 218);
+ min-height: 3vh;
+}
+body {
+    font-family: "Raleway", sans-serif;
+    flex-direction: column;
+    gap: 24px;
+    padding: 14px;
+    min-height: 100vh;
+    background-color: rgb(255, 246, 234);
+}
+
+.button {
+    background: transparent;
+    border-style: solid;
+    border-color: rgb(0, 0, 172); 
+    outline: none;
+    cursor: pointer;
+    padding: 65px;
+    font-size: larger;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: aliceblue;
+    color: darkblue;
+    font-family: "Raleway", sans-serif;
+    position: relative;
+    top: 80px;
+}
+
+.learn {
+    background: transparent;
+    border-color: rgb(0, 0, 172);
+    outline: none;
+    cursor: pointer;
+    padding:0 12px;
+    font-size: larger;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: aliceblue;
+    color: darkblue;
+    font-family: "Raleway", sans-serif;
+    position: relative;
+}
+
+.purpose {
+    background: transparent;
+    border-color: rgb(0, 0, 172);
+    outline: none;
+    cursor: pointer;
+    font-size: larger;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: aliceblue;
+    color: darkblue;
+    font-family: "Raleway", sans-serif;
+    position: relative;
+    
+}
+
+p {
+    gap: 24px;
+    padding: 40px;
+    max-width: 55%;
+}
+
+.survey {
+    background: transparent;
+    border-color:rgb(0, 0, 172);
+    border-radius: 25%;
+    outline: none;
+    cursor: pointer;
+    padding:0 8px;
+    position: absolute;
+    right: 150px;
+    width: 100px;
+    height: 155px;
+    top: 13%;
+    right: 10%;
+    font-size: smaller;
+    aspect-ratio: 1/1;
+    background-color: aliceblue;
+    color: darkblue;
+    font-family: "Raleway", sans-serif;
+}
+
+input {
+    background: transparent;
+    border-color: rgb(0, 0, 172);
+    outline: none;
+    cursor: pointer;
+    padding: 0 15px;
+    position: absolute;
+    bottom: 36%;
+    right: 14%;
+    background-color: aliceblue;
+    border-radius: 25%;
+    font-family: "Raleway", sans-serif;
+}
+
+table, th, td {
+    background-color: aliceblue;
+    border-color: rgb(0, 0, 172);
+    margin-right: 60px;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+button {
+    font-family: "Raleway", sans-serif;
+    background-color: aliceblue;
+    border-color: aliceblue;
+}
+
+.image {
+    display: block;
+    position: relative;
+    margin-left: 0px;
+    margin-top: 40px;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
